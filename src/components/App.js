@@ -1,4 +1,6 @@
-import React from 'react';
+import React from 'react'
+import '../styles/App.css';
+
 class Odd extends React.Component {
   componentWillUnmount() {
     console.log("Odd is unmounted");
@@ -9,7 +11,7 @@ class Odd extends React.Component {
       <div id="odd">
         I am odd
       </div>
-    );
+    )
   }
 }
 
@@ -23,32 +25,31 @@ class Even extends React.Component {
       <div id="even">
         I am even
       </div>
-    );
+    )
   }
 }
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { even: true };
-    this.handleChange = this.handleChange.bind(this);
+  handleChange(){
+    this.setState({even: !this.state.even})
   }
 
-  handleChange() {
-    this.setState({ even: !this.state.even });
+  constructor(props){
+    super(props)
+    this.state = {even: true}
+    this.handleChange =  this.handleChange.bind(this)
   }
 
   render() {
     return (
       <div id="main">
         {this.state.even ? <Even /> : <Odd />}
-        <button id="toggle" onClick={this.handleChange}>
-          Change
-        </button>
+        <button id="toggle" onClick={this.handleChange}>Change</button>
       </div>
-    );
+    )
   }
 }
 
 export default App;
+
 
